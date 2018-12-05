@@ -15,6 +15,13 @@ public class Produto {
         setValidade(validade);
     }
 
+    public Produto(float quantidade, String unidade, String nome) {
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.unidade = unidade;
+        this.validade = new Date();
+    }    
+
     public String getNome() {
         return nome;
     }

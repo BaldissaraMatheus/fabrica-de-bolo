@@ -16,18 +16,6 @@ public class Funcionario {
         this.cep = cep;
         this.alocado = false;
     }
-    
-    private void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    private void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    private void setCep(String cep) {
-        this.cep = cep;
-    }
  
     public String getNome() {
         return nome;

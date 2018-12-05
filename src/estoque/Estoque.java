@@ -8,7 +8,7 @@ public class Estoque {
     
     public static List<Produto> getProdutos() {
         return produtos;
-    }
+    }    
     
     public static void adicionaProduto(Produto produto) {
         int index = buscaProduto(produto.getNome());        
@@ -20,37 +20,53 @@ public class Estoque {
             atualizaQuantidadeProduto(produtos.get(index), produto.getQuantidade()) ;                                          
     }
 
-    public static void removeProduto(String nome, int quantidade) {
+    public static void removeProduto(String nome, float quantidadeRemovida) {
         int index = buscaProduto(nome);
         
-        if (index != -1) 
-            System.out.println("Não foi encontrado este produto!"); 
-        
-        else {
-            float quantidadeAtual = produtos.get(index).getQuantidade();
+        if (index != -1) {
+            float quantidadeAtual = getQuantidadeProduto(index);
             
-            if(quantidadeAtual - quantidade <= 0) { 
+            if(quantidadeAtual - quantidadeRemovida >= 0) {
+                atualizaQuantidadeProduto(produtos.get(index), -quantidadeRemovida);
+                removeProdutoVazio(index);
+                
+            } else 
                 System.out.println("Não há toda essa quantidade para ser removida");
-                
-            } else {
-                atualizaQuantidadeProduto(produtos.get(index), quantidade*-1);
-                
-                if (produtos.get(index).getQuantidade() == 0)
-                    produtos.remove(index);
-            }
-        }          
+            
+        } else 
+            System.out.println("Não foi encontrado este produto!");          
+    }
+
+    public static float getQuantidadeProduto(String nome) {
+        int index = buscaProduto(nome);
+        
+        if(index > -1)
+            return getQuantidadeProduto(index);
+        
+        return -1;        
     }
     
-    public static int buscaProduto(String nome) {
+    private static int buscaProduto(String nome) {
         for (Produto produto : produtos) {
-            if (produto.getNome().equals(nome))
+            if (produto.getNome().toUpperCase().equals(nome.toUpperCase()))
                 return produtos.indexOf(produto);             
         }
         
         return -1;                    
     }
     
+    private static float getQuantidadeProduto(int index) {       
+        if(index > -1)
+            return produtos.get(index).getQuantidade();
+        
+        return -1;        
+    }
+    
     private static void atualizaQuantidadeProduto(Produto produto, float quantidade) {
         produto.setQuantidade(produto.getQuantidade() + quantidade);
     }        
+    
+    private static void removeProdutoVazio(int index) {
+        if (produtos.get(index).getQuantidade() == 0) produtos.remove(index);
+    }
 }

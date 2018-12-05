@@ -17,12 +17,17 @@ public class Compras {
     
     public static void realizaPedido(List<Produto> produtosSolicitados) {
         boolean obtainedCapital = solicitaCapital();
-        setCapital(obtainedCapital);     
-        if (!isCapital()) return;        
-        Pedido pedido = criaPedido();
-        adicionaItens(pedido, produtosSolicitados);
-        List<Produto> produtos = obtemProdutos(pedido);   
-        atualizaEstoque(produtos);
+        setCapital(obtainedCapital);
+        
+        if (!isCapital()) return;  
+        
+        atualizaEstoque(
+          obtemProdutos(
+            adicionaItens(
+              criaPedido(),
+              produtosSolicitados
+        )));
+        
         notificaPCP();
         setCapital(false);
     }
@@ -45,14 +50,14 @@ public class Compras {
     }
     
     private static Pedido criaPedido(){
-        Pedido pedido = new Pedido();
-        return pedido;
+        return new Pedido();
     }
     
-    private static void adicionaItens(Pedido pedido, List<Produto> produtos){
+    private static Pedido adicionaItens(Pedido pedido, List<Produto> produtos){
         produtos.forEach((produtoAtual) -> {
             pedido.adicionaItem(produtoAtual);
-        });        
+        });
+        return pedido;       
     }    
 
     private static List<Produto> obtemProdutos(Pedido pedido){
@@ -60,7 +65,12 @@ public class Compras {
         List<ItemPedido> itensPedido = pedido.getItens();
         
         itensPedido.forEach((item) -> {
-            Produto produto = new Produto(item.getNome(), item.getQuantidade(), item.getUnidade(), item.getValidade());
+            Produto produto = new Produto(
+                    item.getNome(),
+                    item.getQuantidade(),
+                    item.getUnidade(),
+                    item.getValidade());
+            
             produtos.add(produto);
         });
 
@@ -76,6 +86,6 @@ public class Compras {
     }
     
     private static void notificaPCP(){
-         System.out.println("Se essa mensagem foi exibida significa que o programa compilou e que você é uma pessoa incrível.");
+        System.out.println("Se essa mensagem foi exibida significa que o programa compilou e que você é uma pessoa incrível.");
     }        
 }

@@ -1,25 +1,37 @@
 package venda;
 
 import java.util.*;
+import estoque.Estoque;
+import estoque.Produto;
 
 public class Venda {
-    /*private float valorTotal;
-    private List<Produto> prodsCarrinho = new ArrayList();
-    private List<Produto> produtos = new ArrayList();
-    
-    public void listaProdutos() {
-        for(Produto p : prodsCarrinho){
-            System.out.println(prodsCarrinho);
+    private List<Produto> carrinho = new ArrayList();
+
+    public void listaItens() {
+        for (int i = 0; i < this.carrinho.size(); i++) {
+            System.out.println(this.carrinho.get(i));
         }
     }
-    public void adicionaProduto(Produto produto) {
-        prodsCarrinho.add(produto);
+
+    protected void adicionaItem(Produto produto) {
+        this.carrinho.add(produto);
     }
-    
-    public void calculaTotalVenda() {
-        for(Produto p : prodsCarrinho){
-            valorTotal += valor do campo de texto * 25;
+
+    protected void removeItens(String nomeProduto) {        
+        for (int i = 0; i < this.carrinho.size(); i++) {
+            Produto p = this.carrinho.get(i);
+            
+            if (p.getNome().equals(nomeProduto)) {
+                this.carrinho.remove(p);
+                return;
+            }
         }
-    }*/
-    
+    }
+
+    protected void vendeProdutos() {
+        for (Produto item : this.carrinho) {
+            Estoque.removeProduto(item.getNome(), item.getQuantidade());
+        }
+        this.carrinho.clear();
+    }
 }
