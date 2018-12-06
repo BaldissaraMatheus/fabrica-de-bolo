@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import estoque.Produto;
+import java.text.DecimalFormat;
 import pcp.Producao;
 import pcp.ReceitaGUI;
 import rh.ClienteGUI;
@@ -472,8 +473,18 @@ public class VendaGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
      
     private void jTextFieldValorPagoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldValorPagoFocusLost
-        float troco = Float.parseFloat(jTextFieldValorPago.getText()) - this.valorTotal; 
-        jTextFieldTroco.setText(String.valueOf(troco));       
+    float valorPago = Float.parseFloat(jTextFieldValorPago.getText());
+    float valorTotal = Float.parseFloat(jTextFieldTotalVenda.getText());
+    if(valorPago >= valorTotal){        
+        float troco = valorPago - valorTotal;
+        DecimalFormat df = new DecimalFormat("0.00");
+        jTextFieldTroco.setText(String.valueOf(df.format(troco)));   
+    }else{
+        JOptionPane.showMessageDialog(null, "Valor pago deve cobrir valor total da compra!");
+        jTextFieldValorPago.setText("");
+        jTextFieldValorPago.requestFocus();
+    }
+    
     }//GEN-LAST:event_jTextFieldValorPagoFocusLost
 
     private void jButtonConfirmarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarVendaActionPerformed
