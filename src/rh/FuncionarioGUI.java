@@ -214,13 +214,13 @@ public class FuncionarioGUI extends javax.swing.JFrame {
             RH.contratar(usuario);
         }        
                 
-        JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
+        JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
         limpaCampos();               
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         RH.demitir(jTextFieldCPF.getText());
-        JOptionPane.showMessageDialog(null, "Usuario demitido com sucesso");
+        JOptionPane.showMessageDialog(null, "Demitido com sucesso");
         limpaCampos();
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 

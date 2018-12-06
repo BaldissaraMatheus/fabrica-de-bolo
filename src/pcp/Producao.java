@@ -7,11 +7,13 @@ import estoque.Estoque;
 import estoque.Produto;
 import compras.Compras;
 import rh.Funcionario;
+import rh.FuncionarioGUI;
 import rh.Gerente;
 import rh.RH;
 
 public class Producao {
     private static final List<Receita> livroReceitas = new ArrayList<>();
+    static FuncionarioGUI funcionariogui;
     
     public static void solicitaProducaoBolo(String nomeReceita, float quantidade) {
         for (int i = 0; i <= quantidade; i++) {
@@ -40,6 +42,8 @@ public class Producao {
                 
             } else {                
                 System.out.println("Não há pessoal disponível suficiente para trabalhar nisso agora!");
+                 funcionariogui = new FuncionarioGUI();
+                 funcionariogui.setVisible(true);
             }
             
         } else {
