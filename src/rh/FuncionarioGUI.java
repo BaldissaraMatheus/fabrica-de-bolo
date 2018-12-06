@@ -1,5 +1,7 @@
 package rh;
 
+import javax.swing.JOptionPane;
+
 public class FuncionarioGUI extends javax.swing.JFrame {               
     
     public FuncionarioGUI() {
@@ -112,7 +114,7 @@ public class FuncionarioGUI extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Funcionario", "Gerente" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Funcionário", "Gerente" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -191,15 +193,9 @@ public class FuncionarioGUI extends javax.swing.JFrame {
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         if (!verificaCampos()) {
-            System.out.println("Preencha todos os campos!");
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
             return;
-        }
-            
-        Funcionario funcionario = new Funcionario(
-            jTextFieldNome.getText(),
-            jTextFieldCPF.getText(),
-            jTextFieldCEP.getText()
-        );
+        }           
         
         if (jComboBox1.getSelectedItem() == "Funcionário") {
             Funcionario usuario = new Funcionario(
@@ -218,13 +214,13 @@ public class FuncionarioGUI extends javax.swing.JFrame {
             RH.contratar(usuario);
         }        
                 
-        System.out.println("Usuario cadastrado com sucesso");
+        JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso");
         limpaCampos();               
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         RH.demitir(jTextFieldCPF.getText());
-        System.out.println("Usuario demitido com sucesso");
+        JOptionPane.showMessageDialog(null, "Usuario demitido com sucesso");
         limpaCampos();
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
@@ -236,16 +232,17 @@ public class FuncionarioGUI extends javax.swing.JFrame {
                 jTextFieldNome.setText(funcionario.getNome());
                 jTextFieldCEP.setText(funcionario.getCep());
                 jTextFieldCPF.setText(funcionario.getCpf());
-                System.out.println("Funcionário: \n" + funcionario.getNome() + " & " + funcionario.getCep() + " & " + funcionario.getCpf());  
+                JOptionPane.showMessageDialog(null, "Funcionário: \n" + funcionario.getNome() + " & " + funcionario.getCep() + " & " + funcionario.getCpf());  
 
             } else {
-                System.out.println("Funcionário não encontrado!");
+                JOptionPane.showMessageDialog(null, "Funcionário não encontrado!");
             }
         }
     }//GEN-LAST:event_jButtonPesquisaActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

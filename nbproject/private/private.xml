@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/estoque/Produto.java</file>
-            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/compras/Compras.java</file>
-            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/Bolo.java</file>
+            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/venda/VendaGUI.java</file>
+            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/rh/FuncionarioGUI.java</file>
+            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/pcp/Producao.java</file>
+            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/BoloGUI.java</file>
+            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/estoque/EstoqueGUI.java</file>
+            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/pcp/Receita.java</file>
+            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/venda/Venda.java</file>
+            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/rh/RH.java</file>
             <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/estoque/Estoque.java</file>
-            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/estoque/ListaProdutos.java</file>
+            <file>file:/C:/Users/BaldissaraPC/Documents/NetBeansProjects/Bolo/src/Bolo.java</file>
         </group>
     </open-files>
 </project-private>

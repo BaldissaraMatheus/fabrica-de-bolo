@@ -12,8 +12,8 @@ import rh.RH;
 
 public class Producao {
     private static final List<Receita> livroReceitas = new ArrayList<>();
-
-    public static void solicitaProducaoBolo(String nomeReceita, int quantidade) {
+    
+    public static void solicitaProducaoBolo(String nomeReceita, float quantidade) {
         for (int i = 0; i <= quantidade; i++) {
             solicitaProducaoBolo(nomeReceita);
         }
@@ -28,7 +28,7 @@ public class Producao {
                 
                 List<Produto> insumosFaltando = verificaInsumos(receita.getIngredientes());            
 
-                /* Faz reposição no estoque dos insumos que faltavam para a produção do bolo*/
+                /* Faz reposição no estoque dos insumos que faltavam para a produção do bolo */
                 if (!insumosFaltando.isEmpty()) {                                
                     Compras.realizaPedido(insumosFaltando);
                 }
@@ -38,14 +38,16 @@ public class Producao {
                 Produto bolo = produzBolo(nomeReceita);
                 Estoque.adicionaProduto(bolo);
                 
-            } else
+            } else {                
                 System.out.println("Não há pessoal disponível suficiente para trabalhar nisso agora!");
-                        
-        } else 
-            System.out.println("Receita não encontrada!");        
+            }
+            
+        } else {
+            System.out.println("Receita não encontrada!"); 
+        }
     }
  
-    public static void registraReceita(Receita receita) {
+    public static void cadastraReceita(Receita receita) {
         livroReceitas.add(receita);
     }   
     
@@ -100,7 +102,7 @@ public class Producao {
                 pessoalDisponivel++;
             }
         }
-        
+        System.out.println("Funcionarios disponiveis: " + pessoalDisponivel);
         if (pessoalDisponivel >= equipeNecessaria) {
             return true;
         }
@@ -159,7 +161,7 @@ public class Producao {
         return insumosFaltando;
     }
     
-    private static Receita buscaReceita(String nomeReceita) {
+    public static Receita buscaReceita(String nomeReceita) {
         for (Receita receita : livroReceitas) {
             if (receita.getNome().toUpperCase().equals(nomeReceita.toUpperCase()))
                 return receita;             

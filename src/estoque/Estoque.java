@@ -17,7 +17,8 @@ public class Estoque {
             produtos.add(produto);
         
         else 
-            atualizaQuantidadeProduto(produtos.get(index), produto.getQuantidade()) ;                                          
+            atualizaQuantidadeProduto(produtos.get(index), produto.getQuantidade()) ; 
+        
     }
 
     public static void removeProduto(String nome, float quantidadeRemovida) {
@@ -28,7 +29,6 @@ public class Estoque {
             
             if(quantidadeAtual - quantidadeRemovida >= 0) {
                 atualizaQuantidadeProduto(produtos.get(index), -quantidadeRemovida);
-                removeProdutoVazio(index);
                 
             } else 
                 System.out.println("Não há toda essa quantidade para ser removida");

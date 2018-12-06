@@ -86,6 +86,6 @@ public class Compras {
     }
     
     private static void notificaPCP(){
-        System.out.println("Se essa mensagem foi exibida significa que o programa compilou e que você é uma pessoa incrível.");
+        
     }        
 }
