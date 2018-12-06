@@ -15,13 +15,17 @@ public class Producao {
     private static final List<Receita> livroReceitas = new ArrayList<>();
     static FuncionarioGUI funcionariogui;
     
+    static boolean verificacao;
+    
     public static void solicitaProducaoBolo(String nomeReceita, float quantidade) {
-        for (int i = 0; i <= quantidade; i++) {
-            solicitaProducaoBolo(nomeReceita);
+        for (int i = 0; i < quantidade; i++) {
+            if(solicitaProducaoBolo(nomeReceita) == false){
+                break;
+            }
         }
     }
     
-    public static void solicitaProducaoBolo(String nomeReceita) {
+    public static boolean solicitaProducaoBolo(String nomeReceita) {
         Receita receita = buscaReceita(nomeReceita);
         
         if (receita != null) {
@@ -38,8 +42,8 @@ public class Producao {
                 removeInsumosEstoque(receita.getIngredientes());
                 desalocaEquipe(receita.getEquipeMinima());
                 Produto bolo = produzBolo(nomeReceita);
-                Estoque.adicionaProduto(bolo);
-                
+                Estoque.adicionaProduto(bolo);                
+                return true;
             } else {                
                 System.out.println("Não há pessoal disponível suficiente para trabalhar nisso agora!");
                  funcionariogui = new FuncionarioGUI();
@@ -49,6 +53,7 @@ public class Producao {
         } else {
             System.out.println("Receita não encontrada!"); 
         }
+        return false;
     }
  
     public static void cadastraReceita(Receita receita) {
