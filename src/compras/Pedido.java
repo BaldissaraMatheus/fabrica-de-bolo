@@ -8,11 +8,13 @@ public final class Pedido {
     private List<ItemPedido> itens;
     private float precoTotal;
 
+    // Construtor do Pedido
     public Pedido() {
         this.itens = new ArrayList<>();
         setPrecoTotal(0.0f);
     }
 
+    // Adiciona um item a uma lista de ItemPedido e atualiza o valor total do pedido
     protected void adicionaItem(Produto produto){
         ItemPedido item = new ItemPedido(
                 produto.getNome(), 
@@ -24,6 +26,7 @@ public final class Pedido {
         this.updatePrecoTotal(item.getPreco());
     }    
     
+    //Getters e Setters
     public List<ItemPedido> getItens() {
         return itens;
     }
@@ -36,6 +39,7 @@ public final class Pedido {
         this.precoTotal = precoTotal;
     }   
     
+    // Atualiza o valor total do pedido
     private void updatePrecoTotal(float valor) {
         this.precoTotal += valor;
     }  

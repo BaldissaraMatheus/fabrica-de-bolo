@@ -8,6 +8,7 @@ public class Produto {
     private String unidade;
     private Date validade;
     
+    // Construtor de Produto, adicionando todos os dados de um produto
     public Produto(String nome, float quantidade, String unidade, Date validade) {
         setNome(nome);
         setQuantidade(quantidade);
@@ -15,6 +16,7 @@ public class Produto {
         setValidade(validade);
     }
 
+    // Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -47,6 +49,7 @@ public class Produto {
         this.validade = validade;
     }
 
+    // Retorna uma representação string do objeto
     @Override
     public String toString() {
         return "[" +

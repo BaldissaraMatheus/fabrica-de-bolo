@@ -11,7 +11,7 @@ public class Compras {
     
     private static boolean capital;
     
-    // Construtor da classe compras que inicia o capital como false, ou seja, sem capital. 
+    // Construtor da classe Compras que inicia o capital como false, ou seja, sem capital. 
     private Compras() {
         setCapital(false);
     }
@@ -67,7 +67,7 @@ public class Compras {
         return pedido;       
     }    
     
-    // Preenche um item com os dados 
+    // Recebe o pedido como variável para criar uma lista de produtos para serem adicionados ao estoque
     private static List<Produto> obtemProdutos(Pedido pedido){
         List<Produto> produtos = new ArrayList<>();
         List<ItemPedido> itensPedido = pedido.getItens();
