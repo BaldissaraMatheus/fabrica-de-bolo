@@ -80,15 +80,17 @@ public class ClienteGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //Cadastra o cliente
     private void jButtonCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarClienteActionPerformed
+        //pega infos dos campos
         String nomeCliente = jTextFieldNomeCliente.getText();
         String cpfCliente = jTextFieldCPFCliente.getText();
-        
+        //se tiver algum campo vazio
         if (nomeCliente.equals("") || cpfCliente.equals("")) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
             
         } else {
+            //senao, cadastra um cliente
             Cliente cliente = new Cliente(nomeCliente, cpfCliente);
             RH.cadastraCliente(cliente);
 
@@ -98,12 +100,12 @@ public class ClienteGUI extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_jButtonCadastrarClienteActionPerformed
-
+    //limpa os campos do cliente
     public void limpaCampos() {
         jTextFieldNomeCliente.setText("");
         jTextFieldCPFCliente.setText("");
     }
-
+    //volta para a tela anterior
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButtonVoltarActionPerformed

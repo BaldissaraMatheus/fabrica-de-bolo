@@ -22,7 +22,7 @@ public class VendaGUI extends javax.swing.JFrame {
     public VendaGUI() {
         initComponents();
     }
-    
+    //atualiza jtable
     private void atualizaTabela(String nome, String quantidade, String valorUnitario, String subtotal) {
         jTableVenda.setValueAt(nome, topo, 0);
         jTableVenda.setValueAt(quantidade, topo, 1);
@@ -36,12 +36,12 @@ public class VendaGUI extends javax.swing.JFrame {
         jTextFieldPreco.setText("0.00"); 
         valorTotal = 0;
     }
-    
+    //atualiza jtextfield do valor total
     private void atualizaValorTotal(float valor) {
         this.valorTotal += valor;
         jTextFieldTotalVenda.setText(String.valueOf(valorTotal));
     }
-        
+    //verifica se cliente está vinculado à venda    
     private void verificaCliente(boolean verificado) {
         if (!verificado) {
             JOptionPane.showMessageDialog(null, "Não há nenhum cliente cadastrado no sistema com esse cpf!");
@@ -397,6 +397,7 @@ public class VendaGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNomeProdutoActionPerformed
 
     private void jButtonRemoverProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverProdutoActionPerformed
+        //retira do carrinho produto que usuario selecionou        
         try {
             DefaultTableModel model = (DefaultTableModel) this.jTableVenda.getModel();
             int[] rows = jTableVenda.getSelectedRows();
@@ -425,6 +426,7 @@ public class VendaGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNomeProdutoFocusLost
     
     private void jButtonAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarProdutoActionPerformed
+        //adiciona produto no carrinho
         try {
             String nome = jTextFieldNomeProduto.getText();
             float quantidade = Float.parseFloat(jTextFieldQuantidadeProduto.getText());
@@ -473,21 +475,23 @@ public class VendaGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAdicionarProdutoActionPerformed
      
     private void jTextFieldValorPagoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldValorPagoFocusLost
+    //verifica se pagou menos do que o valor total
     float valorPago = Float.parseFloat(jTextFieldValorPago.getText());
     float valorTotal = Float.parseFloat(jTextFieldTotalVenda.getText());
     if(valorPago >= valorTotal){        
         float troco = valorPago - valorTotal;
+        //seta formato do troco para so 2 casas decimais depois da virgula
         DecimalFormat df = new DecimalFormat("0.00");
         jTextFieldTroco.setText(String.valueOf(df.format(troco)));   
     }else{
         JOptionPane.showMessageDialog(null, "Valor pago deve cobrir valor total da compra!");
         jTextFieldValorPago.setText("");
         jTextFieldValorPago.requestFocus();
-    }
-    
+    }    
     }//GEN-LAST:event_jTextFieldValorPagoFocusLost
 
     private void jButtonConfirmarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarVendaActionPerformed
+       //confirma venda
         try {
             DefaultTableModel tabela = (DefaultTableModel) this.jTableVenda.getModel();
             int[] rows = jTableVenda.getSelectedRows();
@@ -498,11 +502,13 @@ public class VendaGUI extends javax.swing.JFrame {
             if (this.clienteVerificado) {
                 if (valorPago >= valorVenda) {
                     for (int i = 0; i < rows.length; i++) {
+                        //remove fileiras da tabela
                         tabela.removeRow(rows[i] - i);
                     }
 
                     for (int row = 0; row < tabela.getRowCount(); row++) {
                         for (int i = 0; i < 4; i++) {
+                            //seta fileiras como vazio
                             jTableVenda.setValueAt("", row, i);
                         }                
                     }        
@@ -521,9 +527,7 @@ public class VendaGUI extends javax.swing.JFrame {
                 
             } else {
                 JOptionPane.showMessageDialog(null, "Não há nenhum cliente cadastrado no sistema com esse cpf!");
-            }
-            
-
+            }  
             
         } catch (NumberFormatException err) {
             JOptionPane.showMessageDialog(null, "Preencha o valor pago!!");
@@ -541,8 +545,7 @@ public class VendaGUI extends javax.swing.JFrame {
 
     private void confirmarClienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarClienteBtnActionPerformed
         this.clienteVerificado = RH.buscarCliente(clienteTextField.getText()) != null;
-        this.verificaCliente(this.clienteVerificado);
-        
+        this.verificaCliente(this.clienteVerificado);        
     }//GEN-LAST:event_confirmarClienteBtnActionPerformed
 
     public static void main(String args[]) {

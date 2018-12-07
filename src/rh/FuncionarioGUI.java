@@ -8,6 +8,7 @@ public class FuncionarioGUI extends javax.swing.JFrame {
         initComponents();
     } 
  
+    //verifica se campo esta preenchido corretamente
     private boolean verificaCampo(String campo) {
         campo = campo.toUpperCase();
         String template = "Preencha o campo " + campo + "!";      
@@ -40,7 +41,7 @@ public class FuncionarioGUI extends javax.swing.JFrame {
         
         }                
     }
-    
+    //retorna falso se campos estiverem vazios
     private boolean verificaCampos() {
         return !(jTextFieldNome.getText().isEmpty() ||
                 jTextFieldCPF.getText().isEmpty() ||
@@ -196,7 +197,7 @@ public class FuncionarioGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
             return;
         }           
-        
+        //contrata funcionario
         if (jComboBox1.getSelectedItem() == "Funcionário") {
             Funcionario usuario = new Funcionario(
                 jTextFieldNome.getText(),
@@ -206,6 +207,7 @@ public class FuncionarioGUI extends javax.swing.JFrame {
             RH.contratar(usuario);
             
         } else {
+            //contrata gerente
             Gerente usuario = new Gerente(
                 jTextFieldNome.getText(),
                 jTextFieldCPF.getText(),
@@ -219,12 +221,14 @@ public class FuncionarioGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        //demite funcionario
         RH.demitir(jTextFieldCPF.getText());
         JOptionPane.showMessageDialog(null, "Demitido com sucesso");
         limpaCampos();
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisaActionPerformed
+        //retorna funcionario cadastrado
         if (verificaCampo("cpf")) {                   
             Funcionario funcionario = RH.recuperar(jTextFieldCPF.getText());
 
