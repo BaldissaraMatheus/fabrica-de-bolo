@@ -7,6 +7,11 @@ Trabalho de Programação Orientada a Objeto ministada pela professora Flávia B
 
 ## Relatório
 
+### Baixando repositório
+```bash
+git clone https://github.com/ArturLadeiraAndrade/trabalho_POO.git
+```
+
 ### Técnologias utilizadas
 
 - Java
