@@ -1,6 +1,6 @@
 ![Bolo :3](bolo.jpeg)
 
-# Bolos Boulos
+# Fábrica de bolo
 Trabalho de Programação Orientada a Objeto ministada pela professora Flávia Bernardini - UFF
 
 **Alunos:** Artur Ladeira; Bárbara Ramos; Catherine Costa; Davi Chalita; Giovane Lopes; José Paulo Gomes; Matheus Baldissara; Samir Saadi
