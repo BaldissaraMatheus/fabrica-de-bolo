@@ -1,4 +1,4 @@
-![Bolo :3](/src/boulos.jpg)
+![Bolo :3](/src/bolo.jpg)
 
 # Bolos Boulos
 Trabalho de Programação Orientada a Objeto ministada pela professora Flávia Bernardini - UFF
