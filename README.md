@@ -75,7 +75,7 @@ José Paulo Gomes:
 > "O trabalho auxiliou na prática de conceitos aprendidos em classe. Além disso, percebemos a importância da fase anterior à codificação: a organização do projeto. Outra situação enfrentada foi a divergência de horários entre cada integrante do grupo. Porém, todas adversidades foram superadas e o trabalho foi concluído."
 
 Matheus Baldissara:
-> "Com esse trabalho eu descobri que planejar o escopo do projeto, os papéis e responsabilidades de cada classe e a integração entre elas é algo que facilita muito seu desenvolvimento a longo prazo."
+> "Com esse trabalho eu descobri que planejar o escopo do projeto, os papéis e responsabilidades de cada classe e a integração entre elas é algo que facilita muito seu desenvolvimento no longo prazo."
 
 Samir Saadi:
 > "O trabalho colaborou de uma forma muito positiva na minha noção de gerenciamento de projetos e sobre o meu conhecimento de POO como um todo. Não tinha noção alguma de java antes da disciplina e agora acredito ter uma base firme para progredir meus estudos em programação orientada a objetos."
