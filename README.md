@@ -33,7 +33,7 @@ O trabalho teve como objetivo a interação entre um grupo grande de pessoas par
 ### Conceitos aplicados
 
 Três pilares de POO foram utilizados para construir o sistema:
-- **Abstração:** é a representação de um objeto real no sistema e possui três pontos principais, a identidade do objeto, que deve ser única dentro do sistema, as propriedades, que são as características do objeto e os métodos, que definem quais ações o objeto irá executar;
+- **Abstração:** é a representação de um objeto real no sistema e possui três pontos principais: A identidade do objeto, que deve ser única dentro do sistema, as propriedades, que são as características do objeto e os métodos, que definem quais ações o objeto irá executar;
 - **Encapsulamento:** uma das principais técnicas que adicionam segurança à programação orientada à objeto, o encapsulamento esconde as propriedades e permite o acesso a elas por métodos especiais, como por exemplo getters e setters que retornam e definem o valor de uma propriedade sem dar acesso direto a ela. Essa etapa a mais garante uma camada extra de segurança à aplicação;
 - **Herança:** permite que se crie uma hierarquia entre os objetos e que cada objeto herde as características e ações dos objetos acima deles, direta ou indiretamente. Facilita o reuso de código.
 
